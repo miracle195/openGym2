@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: opengym-api
+    env: node
+    rootDir: api
+    buildCommand: npm install
+    startCommand: node server.js
+    disk:
+      name: opengym-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: RP_NAME
+        value: openGym
+      - key: ALLOW_GUEST
+        value: "true"
